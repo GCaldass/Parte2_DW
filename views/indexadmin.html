@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!------ HOME ICON ---------->
+    <link rel="shortcut icon" href="img/img5.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!----------- Font Awesome cdn files------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----------- Font Awesome cdn ends------->
+	<!---<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/indexadmin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	<title>HOLLYWOOD</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <!--html from CRUD Operations-->
+                <form action="/auth/registerUser" method="POST" autocomplete="off">
+                    
+                     <div>
+                        <label>Username</label>
+                        <input type ="text" name="username" id="username">
+                     </div>
+                     <div>
+                        <label>Full Name</label>
+                        <input type ="text" name="fullname" id="fullname">
+                     </div>
+                     <div>
+                        <label>Email</label>
+                        <input type ="email" name="email" id="email">
+                     </div>
+                     <div>
+                        <label>Password</label>
+                        <input type ="password" name="password" id="password">
+                     </div>
+                     <div>
+                       
+                        <input type ="submit" value="Submit">
+                     </div>         
+                </form>
+            </td>
+            <td>
+                <!--table to list all records-->
+                <table class="list" >
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+
+                </table>
+
+              <!--  <button type="button" name ="btncreate" id =btncreate" class="btn btn-danger" data-dismiss="modal">CREATE</button>
+                <button type="button" name ="btnread" id="btnread"  class="btn btn-danger" data-dismiss="modal">READ</button>
+                <button type="button" name ="btnupdate" id="btnupdate"  class="btn btn-danger" data-dismiss="modal">UPDATE</button>
+                <button type="button" name ="btndelete" id= "btndelete" class="btn btn-danger" data-dismiss="modal">DELETE</button>
+            -->
+            </td>
+        </tr>
+    </table>
+<!-- Footer -->
+        <script src="js/bootstrap.min.js" ></script>
+       <!--- <script src="js/typed.min.js"></script> --->
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script>
+       
+    </body>
+</html>

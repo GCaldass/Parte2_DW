@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!------ HOME ICON ---------->
+    <link rel="shortcut icon" href="img/img5.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!----------- Font Awesome cdn files------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----------- Font Awesome cdn ends------->
+	<!---<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	<title>HOLLYWOOD</title>
+</head>
+    
+    <body>
+        
+<!-----------Navigation starts---------------->
+       <nav class=" nav navbar navbar-inverse navbar-fixed-top">
+           <div class="nav container">
+                <div class="navbar-header">
+<!--Responsive button--->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand"><img src="img/img5.jpg" class="logo"></a>    
+                </div>
+                <div class="collapse navbar-collapse" id="navi">
+<!--Navigation menus--->
+               <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="#" onclick="openPage('home', this)">Início</a></li>
+                    <li> <a href="#" onclick="openPage('movie', this)">Filmes</a></li>
+                    <li> <a href="#" onclick="openPage('actor',this)">Atores</a></li>
+                    <li> <a href="#" onclick ="openPage('estudio',this)">Estudios</a></li>
+                    <li> <a href="#" onclick ="openPage('realizador',this)">Realizadores</a></li>
+                    <li> <a href="indexadmin.html">Administrativo</a></li>
+
+                    <li> <a href="indexadmin.html">Pesquisa</a></li>
+                    <li class="md-form active-pink active-pink-2 mb-3 mt-0"><input class="form-control" type="text" placeholder="Ator, Filme, Estudio..." aria-label="Search"></li>
+                    <li class="icon"><a href="#" class="nav-link" data-toggle="modal" data-target="#myModal"> <i class= "fa fa-lock" > </i> </a> </li>  
+                      
+                </ul>
+ <!--Navigation menus end-->
+               </div>  
+            </div>
+        </nav>
+         <div class= "container-fluid">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li ><a href="#login" data-toggle="tab">Login</a></li>
+                            <li ><a href="#register" data-toggle="tab">Register</a></li>
+                         </ul>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center h-100">
+                            <div class="d-flex justify-content-center h-100">
+                                <div class="card justify-content-center">
+                                    
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="login">
+                                            <form class="form-horizontal" >
+                                                <div class="form-group " >
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                        <input type="text" id="email" name="email" class="form-control" placeholder="Username or email" required="required" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="checkbox" id="LoginrememberMe">
+                                                    <label for="rememberMe">Lembrar-me</label>
+                                                    <a href="#" class="pull-right">Esqueceu-se da password?</a>
+                                                </div>  
+                                                <input type="submit" onclick="return Login()" value="Login" class="btn btn-success btn-custom">
+                    
+                                            </form>
+                                        </div>
+<!--FORM REGISTER START--->
+                                        <div role="tabpanel" class="tab-pane fade in  " id="register"> 
+                                            <form class="form-horizontal"id="form" method="POST"  action="/auth/register">
+                                                <div class="form-group " >
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                        <input type="text" id="register_username" name="register_username" class="form-control" placeholder="Username" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-male"></i></div>
+                                                        <input type="text" name="register_fullname" class="form-control" placeholder="Nome Completo" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                                        <input type="email" id="register_email" name="register_email" class="form-control" placeholder="Email" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                                        <input type="password" id="register_password" name="register_password" class="form-control" placeholder="Password" required>
+                                                    </div>
+                                                </div>
+                                               <div class="form-group ">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                                        <input type="password" name="register_cpassword" class="form-control" placeholder=" Confirme a Password" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="checkbox" id="RegisterrememberMe">
+                                                    <label for="rememberMe">Lembrar-me</label>
+                                                    
+                                                </div>  
+                                                <input  type="submit"  value="Registar" class="btn btn-success btn-custom">
+                    
+                                            </form>
+
+                                        
+                                
+                                        
+                                        </div>
+<!--FORM REGISTER ENDS--->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>     
+    </div>             
+<!--- Home--->
+        <div class="tabcontent" id="home" >
+        <section class="slider text-center" id="slider">
+            <div class="slider-overlay">
+                <div class="slider-content">
+                    <div class="icons">
+                        <i class= "fa fa-film"></i>
+                        <i class= "fa fa-camera-retro"></i>
+                        <i class= "fa fa-users"></i>
+                    </div>
+                    <br>
+                    <div class="text"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Slide section ends--->
+<!--HOME START --->    
+        <!--- Studios Markups start--->
+        <br><br>
+        <section class="studio-area" id ="studio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="studio-title text-center">
+                            <h2><b>ESTÚDIOS</b></h2>
+                        </div>
+                    </div>
+                </div><br><br>
+                <div class="row">
+                    <!--- Universal Studio Hollywood--->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="studio-wrap text-center imgstudioUniversal">
+                            <div class=" iconstudio studio-icon">
+                                <i class="fa fa-film"></i>
+                            </div>
+                            <h3>Universal S. Hollywood</h3>
+                            <p>Experience the Movies </p>
+                        </div>
+                    </div>
+                    <!--- 20th Century Fox--->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="studio-wrap text-center imgstudio20thcentury">
+                            <div class="iconstudio studio-icon">
+                                <i class="fa fa-film"></i>
+                            </div>
+                            <h3>20TH Century Fox</h3>
+                            <p>Make It a Blockbuster Night</p>
+                        </div>
+                    </div>
+                    <!------------------ Warner Bros. Pictures--------------->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="studio-wrap text-center imgstudioWarner">
+                            <div class=" iconstudio studio-icon">
+                                <i class="fa fa-film"></i>
+                            </div>
+                            <h3>Warner Bros. Pictures</h3>
+                            <p>Hollywood on the gold coast </p>
+                        </div>
+                    </div>
+                      <!------------------ Walt Disney Pictures--------------->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="studio-wrap text-center imgstudioDisney ">
+                            <div class="studio-icon">
+                                <i class=" iconstudio fa fa-film"></i>
+                            </div>
+                            <h3>Walt Disney Pictures</h3>
+                            <p>The Most Magical Place on Earth.</p>
+                        </div>
+                    </div>
+                    <!------------------ Columbia Pictures--------------->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="iconstudio studio-wrap text-center imgstudioColumbia">
+                            <div class="studio-icon">
+                                <i class="fa fa-film"></i>
+                            </div>
+                            <h3>Columbia Pictures</h3>
+                            <p>BE MOVED</p>
+                        </div>
+                    </div>
+                    <!------------------ Paramount Pictures--------------->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="iconstudio studio-wrap text-center imgstudioParamount">
+                            <div class="studio-icon">
+                                <i class="fa fa-film"></i>
+                            </div>
+                            <h3>Paramount Pictures</h3>
+                            <p>Famous Players in Famous Plays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--- Studio Markups ends --->
+        
+     <br><br><br>    
+        <!--- Movies start --->
+        <div class="container movie">
+        <h2 style="text-align: center;"><strong> FILMES POPULARES</strong></h2>
+            <div class="row">
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img src="css/img/img1.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img3.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img4.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img6.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img7.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img8.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img9.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap" style="margin-left: 40px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img10.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img11.jpg">
+                        </div>
+                    </div>
+                </div> 
+            </div>    
+    </div>
+    <br><br><br><br><br>
+</div>
+<!---------------------------------------------------- HOME ENDS ------------------------------------------->
+        
+<!---------------------------------------------------- SPA FILMES ------------------------------------------->
+        <div class="tabcontent" id="movie">
+        <br><br><br><br><br>
+        <div class="container movie">
+          <div class="row">
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img src="css/img/img1.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img3.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img4.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img6.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img7.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img8.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img9.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap" style="margin-left: 40px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/img10.jpg">
+                        </div>
+                        <div class="col-6">
+                            <img src="img/img11.jpg">
+                        </div>
+                    </div>
+                </div> 
+            </div>    
+            </div>
+            <br><br><br><br><br>
+        </div>
+        
+<!---------------------------------------------------- SPA ATORES ------------------------------------------->
+        <div class="tabcontent" id="actor">
+            <br><br><br><br><br>
+            <div class="container movie">
+              <div class="row">
+                    <div class="col-md-2 movie-wrap">
+                        <div class="row">
+                            <div class="col-6 ">
+                                <img src="img/Brad.jpg"><hr><figcaption class="id1">Brad Pitt</figcaption>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/Ange.jpg"><hr><figcaption class="id1">Agelina Jolie</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 movie-wrap">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="img/GeorgeC.jpg"><hr><figcaption class="id1">George Clooney</figcaption>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/Bradley.jpg"><hr><figcaption class="id1">Bradley Cooper</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 movie-wrap">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="img/Jenni.jpg" style="height: 200px;"><hr><figcaption class="id1">Jennifer Lawrence</figcaption>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/Claire.jpg" style="height: 235px;"><hr><figcaption class="id1">Claier Danes</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 movie-wrap">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="img/Leo.jpg"><hr><figcaption class="id1">Brad Pitt</figcaption>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/Rock.jpg" ><hr><figcaption class="id1">Dwayne Johnson</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 movie-wrap" style="margin-left: 40px;">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="img/Emma.jpg" style="height: 200px;"><hr><figcaption class="id1">Emma Watson</figcaption>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/JamesF.jpg"><hr><figcaption class="id1">James Franco</figcaption>
+                            </div>
+                        </div>
+                    </div> 
+                </div>    
+        </div>
+        <br><br><br><br><br>
+        </div>
+        
+ <!---------------------------------------------------- SPA ESTUDIO ------------------------------------------->       
+        <div class="tabcontent" id="estudio">
+            <br><br><br><br>
+            <section class="studio-area" id ="studio">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="studio-title text-center">
+                   <!---- <h2><b>ESTÚDIOS</b></h2> ---->
+                </div>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <!------------------ Universal Studio Hollywood--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="studio-wrap text-center imgstudioUniversal">
+                    <div class=" iconstudio studio-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>Universal S. Hollywood</h3>
+                    <p>Experience the Movies </p>
+                </div>
+            </div>
+            <!------------------ 20th Century Fox--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="studio-wrap text-center imgstudio20thcentury">
+                    <div class="iconstudio studio-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>20TH Century Fox</h3>
+                    <p>Make It a Blockbuster Night</p>
+                </div>
+            </div>
+            <!------------------ Warner Bros. Pictures--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="studio-wrap text-center imgstudioWarner">
+                    <div class=" iconstudio studio-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>Warner Bros. Pictures</h3>
+                    <p>Hollywood on the gold coast </p>
+                </div>
+            </div>
+              <!------------------ Walt Disney Pictures--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="studio-wrap text-center imgstudioDisney ">
+                    <div class="studio-icon">
+                        <i class=" iconstudio fa fa-film"></i>
+                    </div>
+                    <h3>Walt Disney Pictures</h3>
+                    <p>The Most Magical Place on Earth.</p>
+                </div>
+            </div>
+            <!------------------ Columbia Pictures--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="iconstudio studio-wrap text-center imgstudioColumbia">
+                    <div class="studio-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>Columbia Pictures</h3>
+                    <p>BE MOVED</p>
+                </div>
+            </div>
+            <!------------------ Paramount Pictures--------------->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="iconstudio studio-wrap text-center imgstudioParamount">
+                    <div class="studio-icon">
+                        <i class="fa fa-film"></i>
+                    </div>
+                    <h3>Paramount Pictures</h3>
+                    <p>Famous Players in Famous Plays</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <br><br><br><br>       
+        </div>
+        
+ <!---------------------------------------------------- SPA REALIZADORES ------------------------------------------->
+
+        <div class="tabcontent" id="realizador">
+        <br><br><br><br><br>
+        <div class="container movie">
+          <div class="row">
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img src="img/Quent.jpg " style="height: 210px;"><hr><figcaption class="id1">Quentin Tarantino</figcaption>
+                        </div>
+                        <div class="col-6">
+                            <img src="img/Tim.jpg" style="height: 210px;"><hr><figcaption class="id1">Tim Burton</figcaption>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/Steven.jpg"><hr><figcaption class="id1">Steven Spielberg</figcaption>
+                        </div>
+                        <div class="col-6">
+                            <img src="img/GL.jpg" style="height: 210px;"><hr><figcaption class="id1">George Lucas</figcaption>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/Martin.jpg"><hr><figcaption class="id1">Martin Scorsese</figcaption>
+                        </div>
+                        <div class="col-6">
+                            <img src="img/Woody.jpg" style="height: 210px;"><hr><figcaption class="id1">Woody Allen</figcaption>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/Wim.jpg" style="height: 210px;"><hr><figcaption class="id1">Wim Wenders</figcaption>
+                        </div>
+                        <div class="col-6">
+                            <img src="img/DavidL.jpg" style="height: 210px;"><hr><figcaption class="id1">David Lynch</figcaption>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 movie-wrap" style="margin-left: 40px;">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="img/Terry.jpg" style="height: 210px;"><hr><figcaption class="id1">Terry Gilliam</figcaption>
+                        </div>
+                        <div class="col-6">
+                            <img src="img/Mano.jpg" style="height: 210px;"><hr><figcaption class="id1">Manoel de Oliveira</figcaption>
+                        </div>
+                    </div>
+                </div> 
+            </div>    
+    </div>
+        <br><br><br>
+            
+        </div>
+        
+        
+    
+ <!---------------------------------------------------- FOOTER ---------------------------------------- -->
+ <footer class="page-footer bg-info ">
+  <!-- Footer Elements -->
+  <div class="container text-center ">
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class=" flex-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic" href="https://www.facebook.com/">
+            <i class="fa fa-facebook fa-lg text-white mr-md-5 mr-3 fa-2x mt-3" style="margin: 0 5px; margin-top: 20px;"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="https://twitter.com/login?lang=pt">
+            <i class="fa fa-twitter fa-lg text-white mr-md-5 mr-3 fa-2x mt-3" style="margin: 0 5px; margin-top: 20px;"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic" href="#">
+            <i class="fa fa-google-plus fa-lg text-white mr-md-5 mr-3 fa-2x mt-3" style="margin: 0 5px; margin-top: 20px;"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic" href="https://pt.linkedin.com/">
+            <i class="fa fa-linkedin fa-lg text-white mr-md-5 mr-3 fa-2x mt-3" style="margin: 0 5px; margin-top: 20px; "> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic" href="https://www.instagram.com/">
+            <i class="fa fa-instagram fa-lg text-white mr-md-5 mr-3 fa-2x mt-3" style="margin: 0 5px; margin-top: 20px;"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic" href="https://www.pinterest.pt/">
+            <i class="fa fa-pinterest fa-lg text-white fa-2x " style="margin: 0 5px;"> </i>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div> <hr>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center pb-3">© 2020 Copyright:
+    <a href="#" class="text-white"> MovieCity.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+        <script src="js/bootstrap.min.js" ></script>
+        <script src="js/indexf.js" ></script>
+        <script src="js/main.js" ></script>
+        <script src="login.js" ></script>
+       
+        
+       <!--- <script src="js/typed.min.js"></script> --->
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script>
+       
+    </body>
+</html>
